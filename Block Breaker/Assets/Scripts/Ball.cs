@@ -26,6 +26,8 @@ public class Ball : MonoBehaviour
     void Update()
     {
         // bool used bcuz if not then when you left click the ball wont launch off paddle
+        // Saying if false then the ball will be locked to paddle and you can left click to launch the ball
+        // When left click hasStarted will be true meaning ball cant be locked to paddle and cant left click to launch ball anymore
         if (!hasStarted)
         {
             LockBallToPaddle();
@@ -47,5 +49,16 @@ public class Ball : MonoBehaviour
     {
         Vector2 paddlePosition = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
         transform.position = paddlePosition + paddleToBallVector;
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If hasStarted is true then play the audio sound for when the ball collides to anything
+        // Fixes bug where audio will play when ball rests on paddle due to game saying it is colliding with it. Will only make sound after ball launches
+        if (hasStarted)
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
 }

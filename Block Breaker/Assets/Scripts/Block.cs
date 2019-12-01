@@ -29,3 +29,7 @@ public class Block : MonoBehaviour
 - After "CTRL-D" then use the snap to move them incrementally(CTRL- Direction To Move)
 
 */
+
+
+    // Audio dont use .wav because they are massive. Used Ogg Vorbis and not mp3
+    // on Ball Audio Source play on awake means something that will play when game starts!
