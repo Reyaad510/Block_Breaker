@@ -15,3 +15,17 @@ public class Block : MonoBehaviour
         Debug.Log(collision.gameObject.name);
     }
 }
+
+
+/*Prefab notes
+ 
+- To make a prefab take an object and drag it below in the "Project" Tab
+- From there make a new game object called "Blocks" to store all blocks
+- Drag n drop the prefabs into the "Blocks" object or onto the canvas
+- In "Edit" you can go to "Snap Settings" and change the way the blocks can move
+- Click an object and hold "CTRL" and move them and they will move incrementally depending on the "Snap Settings"
+- You can snap other block together by clicking on it and then holding "V". Boxes will appear on the corners. You then left click and drag next to another block and it will snap to it.
+- To create neat blocks and alot hold "Shift" and click on blocks that are together(worked for me by highlighting in the Blocks ob) and then duplicate(CTRL D). 
+- After "CTRL-D" then use the snap to move them incrementally(CTRL- Direction To Move)
+
+*/
