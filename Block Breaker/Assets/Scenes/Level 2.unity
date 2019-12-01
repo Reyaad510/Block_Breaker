@@ -872,6 +872,18 @@ PrefabInstance:
       objectReference: {fileID: 1929334179}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e717a0600f835c4985ac4985927ce8a, type: 3}
+--- !u!114 &1778454748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 905508692, guid: bf48999ef211f6e44abda604844c0432,
+    type: 3}
+  m_PrefabInstance: {fileID: 1417159758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1835163170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1414,5 +1426,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129805623956417777, guid: 05cc15bc68542bf46be83dcf19c5da91,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1778454748}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cc15bc68542bf46be83dcf19c5da91, type: 3}
