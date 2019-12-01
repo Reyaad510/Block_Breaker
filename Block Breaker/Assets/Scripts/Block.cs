@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    // config params
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockSparklesVFX;
+    [SerializeField] int maxHits;
 
     // cached reference
     Level level;
 
+    // state variables
+    [SerializeField] int timesHit; // Serialized for debug purposes
 
     private void Start()
     {
@@ -37,11 +41,20 @@ public class Block : MonoBehaviour
         // Camera.main.transform.position saying to play break sound at the position of the camera. If play sound on block wont sound loud bcuz of 3d space. Click 2d tab to understand
         if (tag == "Breakable")
         {
-            DestroyBlock();
+            HandleHit();
         }
 
         // tells us what collided with us. In this case would be "Ball"
         Debug.Log(collision.gameObject.name);
+    }
+
+    private void HandleHit()
+    {
+        timesHit++;
+        if (timesHit >= maxHits)
+        {
+            DestroyBlock();
+        }
     }
 
     private void DestroyBlock()
