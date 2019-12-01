@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [SerializeField] AudioClip breakSound;
+
+
     // when something collides that collision moment will tell us  what was the colision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Destroy(obj, float t = 0.0f meaning how long you want it to get destroyed)
         // gameObject not captial referring to "this" gameObecjt(being the block)
+        // creating new AudioSource so dont use GetComponent. PlayClipAtPoint creates a new audiosource
+        // Camera.main.transform.position saying to play break sound at the position of the camera. If play sound on block wont sound loud bcuz of 3d space. Click 2d tab to understand
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
         Destroy(gameObject);
+       
 
         // tells us what collided with us. In this case would be "Ball"
         Debug.Log(collision.gameObject.name);
@@ -27,6 +34,7 @@ public class Block : MonoBehaviour
 - You can snap other block together by clicking on it and then holding "V". Boxes will appear on the corners. You then left click and drag next to another block and it will snap to it.
 - To create neat blocks and alot hold "Shift" and click on blocks that are together(worked for me by highlighting in the Blocks ob) and then duplicate(CTRL D). 
 - After "CTRL-D" then use the snap to move them incrementally(CTRL- Direction To Move)
+- Make sure to click Apply on prefab override settings when changing anything to apply to rest so they affect all scenes
 
 */
 
