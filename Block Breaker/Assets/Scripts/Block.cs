@@ -13,12 +13,19 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
-        // Looking for something of the Type Level and assigning it to variable level
-        level = FindObjectOfType<Level>();
-        level.CountBreakableBlocks();
+        CountBreakableBlocks();
     }
 
-  
+    private void CountBreakableBlocks()
+    {
+        level = FindObjectOfType<Level>();
+        if (tag == "Breakable")
+        {
+            level.CountBLocks();
+        }
+    }
+
+
 
 
     // when something collides that collision moment will tell us  what was the colision
@@ -28,8 +35,10 @@ public class Block : MonoBehaviour
         // gameObject not captial referring to "this" gameObecjt(being the block)
         // creating new AudioSource so dont use GetComponent. PlayClipAtPoint creates a new audiosource
         // Camera.main.transform.position saying to play break sound at the position of the camera. If play sound on block wont sound loud bcuz of 3d space. Click 2d tab to understand
-        DestroyBlock();
-
+        if (tag == "Breakable")
+        {
+            DestroyBlock();
+        }
 
         // tells us what collided with us. In this case would be "Ball"
         Debug.Log(collision.gameObject.name);

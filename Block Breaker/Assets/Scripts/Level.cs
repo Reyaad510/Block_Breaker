@@ -15,7 +15,7 @@ public class Level : MonoBehaviour
     }
 
     // This adds amount of blocks because each block instance of the prefab has the Block script which calls the CountBreakableBlocks() method in the start. They instance says "Add" which is how we get the breakable blocks number
-    public void CountBreakableBlocks()
+    public void CountBLocks()
     {
         breakableBlocks++;
     }
