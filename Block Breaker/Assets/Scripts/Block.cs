@@ -6,6 +6,18 @@ public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip breakSound;
 
+    // cached reference
+    Level level;
+
+    private void Start()
+    {
+        // Looking for something of the Type Level and assigning it to variable level
+        level = FindObjectOfType<Level>();
+        level.CountBreakableBlocks();
+    }
+
+  
+
 
     // when something collides that collision moment will tell us  what was the colision
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,6 +34,13 @@ public class Block : MonoBehaviour
         Debug.Log(collision.gameObject.name);
     }
 }
+
+
+
+
+
+
+
 
 
 /*Prefab notes
