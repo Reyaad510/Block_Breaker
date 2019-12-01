@@ -26,12 +26,18 @@ public class Block : MonoBehaviour
         // gameObject not captial referring to "this" gameObecjt(being the block)
         // creating new AudioSource so dont use GetComponent. PlayClipAtPoint creates a new audiosource
         // Camera.main.transform.position saying to play break sound at the position of the camera. If play sound on block wont sound loud bcuz of 3d space. Click 2d tab to understand
-        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
-        Destroy(gameObject);
-       
+        DestroyBlock();
+
 
         // tells us what collided with us. In this case would be "Ball"
         Debug.Log(collision.gameObject.name);
+    }
+
+    private void DestroyBlock()
+    {
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+        Destroy(gameObject);
+        level.BlockDestroyed();
     }
 }
 
