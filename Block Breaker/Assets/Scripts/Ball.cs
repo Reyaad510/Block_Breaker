@@ -10,16 +10,24 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle paddle1;
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 15f;
+    [SerializeField] AudioClip[] ballSounds;
 
     // state
     Vector2 paddleToBallVector;
     bool hasStarted = false;
+
+    // Cached component references
+    AudioSource myAudioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
         // giving distance between ball and paddle. Postion of ball minus position of paddle x1,y1 - x2,y2
         paddleToBallVector = transform.position - paddle1.transform.position;
+
+        // Telling engine go and find Audiosource component once and saying this is what is is
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,7 +66,13 @@ public class Ball : MonoBehaviour
         // Fixes bug where audio will play when ball rests on paddle due to game saying it is colliding with it. Will only make sound after ball launches
         if (hasStarted)
         {
-            GetComponent<AudioSource>().Play();
+           
+            // UnityEngine bcuz there are different Random can be using so we are using UnityEngine Random
+            AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
+            // PlayOneShot means will play an audio piece whole way through even if another audio starts playing\
+            myAudioSource.PlayOneShot(clip);
         }
     }
 }
+
+
