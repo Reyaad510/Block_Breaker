@@ -637,6 +637,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1953998235}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1669988302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
+    type: 3}
+  m_PrefabInstance: {fileID: 2073936030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1873819902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -821,15 +827,16 @@ Transform:
   - {fileID: 2026531371}
   - {fileID: 543760909}
   - {fileID: 390061596}
+  - {fileID: 1669988302}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2073936030
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2061169668}
     m_Modifications:
     - target: {fileID: 6947070236835494877, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}
@@ -854,17 +861,17 @@ PrefabInstance:
     - target: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}
@@ -874,7 +881,7 @@ PrefabInstance:
     - target: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6947070236835494875, guid: 83f855064eaa62542ac60badb6e67356,
         type: 3}

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
@@ -10,14 +8,18 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle paddle1;
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 15f;
-    [SerializeField] AudioClip[] ballSounds;
+    // [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] AudioClip ballSound;
+    [SerializeField] float randomFactor = 0.2f;
 
     // state
     Vector2 paddleToBallVector;
     bool hasStarted = false;
 
     // Cached component references
+    // DO this when using more than once or GetComponent alot for every frame so dont have to search for it every frame
     AudioSource myAudioSource;
+    Rigidbody2D myRigidBody2D;
 
 
     // Start is called before the first frame update
@@ -28,6 +30,7 @@ public class Ball : MonoBehaviour
 
         // Telling engine go and find Audiosource component once and saying this is what is is
         myAudioSource = GetComponent<AudioSource>();
+        myRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -49,7 +52,7 @@ public class Ball : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             hasStarted = true;
-            GetComponent<Rigidbody2D>().velocity = new Vector2(xPush, yPush);
+            myRigidBody2D.velocity = new Vector2(xPush, yPush);
         }
     }
 
@@ -62,15 +65,22 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // prevents ball from going horizontal for years
+        Vector2 velocityTweak = new Vector2(
+            Random.Range(0f, randomFactor),
+            Random.Range(0f, randomFactor));
+
         // If hasStarted is true then play the audio sound for when the ball collides to anything
         // Fixes bug where audio will play when ball rests on paddle due to game saying it is colliding with it. Will only make sound after ball launches
         if (hasStarted)
         {
            
             // UnityEngine bcuz there are different Random can be using so we are using UnityEngine Random
-            AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
+            // AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
+            AudioClip clip = ballSound;
             // PlayOneShot means will play an audio piece whole way through even if another audio starts playing\
             myAudioSource.PlayOneShot(clip);
+            myRigidBody2D.velocity += velocityTweak;
         }
     }
 }
