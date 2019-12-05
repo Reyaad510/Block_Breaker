@@ -423,12 +423,12 @@ PrefabInstance:
     - target: {fileID: 9129805623956417777, guid: 05cc15bc68542bf46be83dcf19c5da91,
         type: 3}
       propertyPath: isAutoPlayEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9129805623956417777, guid: 05cc15bc68542bf46be83dcf19c5da91,
         type: 3}
       propertyPath: gameSpeed
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cc15bc68542bf46be83dcf19c5da91, type: 3}
@@ -831,6 +831,26 @@ PrefabInstance:
     - target: {fileID: 619817303930018385, guid: 3d837bf72cd47df41b823e552e9b17cc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 619817303930018478, guid: 3d837bf72cd47df41b823e552e9b17cc,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 619817303930018478, guid: 3d837bf72cd47df41b823e552e9b17cc,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 619817303930018478, guid: 3d837bf72cd47df41b823e552e9b17cc,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 619817303930018478, guid: 3d837bf72cd47df41b823e552e9b17cc,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
